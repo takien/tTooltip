@@ -390,7 +390,34 @@ li.L9 { background: #eee }
 
 header{
 	padding-top:20px;
-	margin-bottom:40px
+	margin-bottom:30px;
+	text-align:center;
+}
+
+.download-info{
+	text-align:center
+}
+.quick-links {
+  min-height: 30px;
+  margin: 0;
+  padding: 5px 20px;
+  list-style: none;
+  text-align: center;
+  overflow: hidden;
+}
+.quick-links:first-child {
+  min-height: 0;
+}
+.quick-links li {
+  display: inline;
+  margin: 0 8px;
+  color: #999;
+}
+.quick-links .github-btn,
+.quick-links .tweet-btn,
+.quick-links .follow-btn {
+  position: relative;
+  top: 5px;
 }
 </style>
 </head>
@@ -399,16 +426,29 @@ header{
 <header>
 <h1>jQuery tTooltip plugin</h1>
 <p><em>&copy; 2012 by <a href="http://takien.com" target="_blank">takien</a></em></p>
-<p>
-</header>
-<strong>jQuery tTooltip</strong> is just another simple and lightweight tooltip plugin for jQuery.
+<p><strong>jQuery tTooltip</strong> is just another simple and lightweight tooltip plugin for jQuery.
 </p>
+</header>
+
 
 <p class="download-info">
       <a href="https://github.com/takien/tTooltip" class="btn btn-primary btn-large" >View project on GitHub</a>
-      <a href="https://github.com/takien/tTooltip/zipball/master" class="btn btn-large btn-success">Download tTooltip <small>(v0.1)</small></a>
+      <a href="https://github.com/takien/tTooltip/zipball/master" class="btn btn-large btn-success">Download tTooltip (v0.1)</a>
     </p>
-
+  <ul class="quick-links">
+      <li>
+        <iframe class="github-btn" src="http://markdotto.github.com/github-buttons/github-btn.html?user=takien&repo=tTooltip&type=watch&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="112px" height="20px"></iframe>
+      </li>
+      <li>
+        <iframe class="github-btn" src="http://markdotto.github.com/github-buttons/github-btn.html?user=takien&repo=tTooltip&type=fork&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="98px" height="20px"></iframe>
+      </li>
+      <li class="follow-btn">
+        <a href="https://twitter.com/cektkp" class="twitter-follow-button" data-link-color="#0069D6" data-show-count="true">Follow @cektkp</a>
+      </li>
+      <li class="tweet-btn">
+        <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://takien.github.com/tTooltip/" data-count="horizontal" data-via="cektkp" data-related="mdo:Creator of tTooltip">Tweet</a>
+      </li>
+    </ul>
 <h2>Features:</h2>
 <ul>
 <li><strong>Light weight</strong>, only 3kb compressed javascript, and 4kb uncompressed :D</li>
@@ -576,5 +616,6 @@ Ipsa codicellos iam gubergren nonumy qui a a civitas Conservus mihi quidditas mi
 	</div>
 </footer>
 </body>
+ <script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
 <script type="text/javascript" src="http://google-code-prettify.googlecode.com/svn/trunk/src/prettify.js"></script>
 </html>
