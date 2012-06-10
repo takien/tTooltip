@@ -146,7 +146,7 @@
 				}
 				
 				function close(what){
-					what.fadeOut().remove();
+					what.fadeOut(o.fadeoutspeed,function(){what.remove()});
 				}
 				
 				e.preventDefault();
@@ -165,6 +165,7 @@
 		trigger		: 'mouseenter',
 		close		: 'mouseleave',
 		maxwidth	: 500,
+		fadeoutspeed: 'slow',
 		template	: '<div class="ttooltip-wrap"><div class="ttooltip-arrow ttooltip-arrow-border"></div><div class="ttooltip-arrow"></div><div class="ttooltip-inner"><h3 class="ttooltip-title"></h3><div class="ttooltip-content"><p></p></div><div class="ttooltip-footer"></div></div></div>'
 	};
 })(jQuery);

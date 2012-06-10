@@ -1,9 +1,19 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://ogp.me/ns/fb#" xmlns:og="http://opengraphprotocol.org/schema/" xml:lang="en" lang="en">
+
 <head>
 <title>jQuery tToolTip</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+
+<link rel="profile" href="http://gmpg.org/xfn/11" />
+<meta property="og:site_name" content="jQuery tTooltip"/>
+<meta property="og:title" content="jQuery tTooltip"/>
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://takien.github.com/tTooltip" />
+<meta property="og:image" content="http://takien.github.com/tTooltip/images/tooltip-sample.jpg" />
+<meta property="og:description" content="jQuery tTooltip is just another simple and lightweight tooltip plugin for jQuery."/>
+<meta name="description" content="jQuery tTooltip is just another simple and lightweight tooltip plugin for jQuery. " />
 
 <script src="ttooltip/script/jquery.js"></script>
 <script src="ttooltip/script/jquery-ttooltip.js"></script>
@@ -11,21 +21,12 @@
 <script type="text/javascript">
 jQuery(document).ready(function($){
 
-	/* assign tTooltip to all link with .ttooltip class */
+  /* assign tTooltip to all link with .ttooltip class */
 	$('.ttooltip').ttooltip({
 		trigger    :'mouseenter', /*possible value: hover, mouseenter, click, dblclick*/
 		followmouse: true
 	});
 	
-	
-	/*for demo only*/
-	$('#togglesource').click(function(){
-		$('.content a').each(function(){
-			$(this).wrap('<span class="awrap"/>')
-			//.after(' <input type="text" value="'+$('<div/>').text($(this).parent().html()).html()+'" />');
-			.after(' <code class="acode">'+$('<div/>').text($(this).parent().html()).html()+'</code>');
-		});
-	});
 });
 </script>
 <style type="text/css">
@@ -390,19 +391,75 @@ li.L9 { background: #eee }
 
 header{
 	padding-top:20px;
-	margin-bottom:40px
+	margin-bottom:30px;
+	text-align:center;
+}
+
+.download-info{
+	text-align:center
+}
+.quick-links {
+  min-height: 30px;
+  margin: 0;
+  padding: 5px 20px;
+  list-style: none;
+  text-align: center;
+  overflow: hidden;
+}
+.quick-links:first-child {
+  min-height: 0;
+}
+.quick-links li {
+  display: inline;
+  margin: 0 8px;
+  color: #999;
+}
+.quick-links .github-btn,
+.quick-links .tweet-btn,
+.quick-links .follow-btn,
+.quick-links .gplus-btn,
+.quick-links .fb-btn {
+  position: relative;
+  top: 5px;
 }
 </style>
 </head>
 <body onload="prettyPrint()">
+
 <div class="container" id="wrapper">
 <header>
 <h1>jQuery tTooltip plugin</h1>
 <p><em>&copy; 2012 by <a href="http://takien.com" target="_blank">takien</a></em></p>
-<p>
-</header>
-<strong>jQuery tTooltip</strong> is just another simple and lightweight tooltip plugin for jQuery.
+<p><strong>jQuery tTooltip</strong> is just another simple and lightweight tooltip plugin for jQuery.
 </p>
+</header>
+
+
+<p class="download-info">
+      <a href="https://github.com/takien/tTooltip" class="btn btn-primary btn-large" >View project on GitHub</a>
+      <a href="https://github.com/takien/tTooltip/zipball/master" class="btn btn-large btn-success">Download tTooltip (v0.1)</a>
+    </p>
+  <ul class="quick-links">
+	<li class="fb-btn">
+	<fb:like layout="button_count" send="false" href="http://takien.github.com/tTooltip/"></fb:like>
+	</li>
+      <li>
+        <iframe class="github-btn" src="http://markdotto.github.com/github-buttons/github-btn.html?user=takien&repo=tTooltip&type=watch&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="112px" height="20px"></iframe>
+      </li>
+      <li>
+        <iframe class="github-btn" src="http://markdotto.github.com/github-buttons/github-btn.html?user=takien&repo=tTooltip&type=fork&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="98px" height="20px"></iframe>
+      </li>
+      <li class="follow-btn">
+        <a href="https://twitter.com/cektkp" class="twitter-follow-button" data-link-color="#0069D6" data-show-count="true">Follow @cektkp</a>
+      </li>
+      <li class="tweet-btn">
+        <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://takien.github.com/tTooltip/" data-count="horizontal" data-via="cektkp" data-related="cektkp:Creator of tTooltip">Tweet</a>
+      </li>
+	  <li class="gplus-btn">
+		<g:plusone url="http://cektkp.com/" size="medium"></g:plusone>
+	   </li>
+    </ul>
+
 <h2>Features:</h2>
 <ul>
 <li><strong>Light weight</strong>, only 3kb compressed javascript, and 4kb uncompressed :D</li>
@@ -537,7 +594,12 @@ jQuery(document).ready(function($){
 	<tr><td><strong>title		</strong></td><td> : <em>'',</em></td><td>Set default title, not implemented in this version.</td></tr>
 	<tr><td><strong>trigger		</strong></td><td> : <em>'mouseenter',</em></td><td>When tooltip should be triggered. Possible value: <code>mouseenter, hover, mouse, click, dblclick</code></td></tr>
 	<tr><td><strong>close		</strong></td><td> : <em>'mouseleave',</em></td><td>Set <code>mouseleave</code> if you want to tooltip autohide (autohide parameter should be true). Otherwise you can set <code>click</code> if you want tooltip to close when it's clicked.</td></tr>
-	<tr><td><strong>maxwidth	</strong></td><td> : <em>500,</em></td><td>Maximum width of the tooltip box, default value is <code>500</code></td></tr>
+	<tr><td><strong>maxwidth	</strong></td><td> : <em>500</em></td><td>Maximum width of the tooltip box, default value is <code>500</code></td></tr>
+	
+	<tr><td><strong><tr><td><strong>fadeoutspeed</strong></td><td> : <em>'slow'</em></td><td>The fadeout speed, default is <code>slow</code>. Possible value: <code>slow, fast</code> and any number (miliseconds) eg <code>1000</code>.</td></tr>	
+	
+
+	
 	<tr><td><strong>template	</strong></td><td> : <pre >&lt;div class=&quot;ttooltip-wrap&quot;&gt;&lt;div class=&quot;ttooltip-arrow ttooltip-arrow-border&quot;&gt;&lt;/div&gt;&lt;div class=&quot;ttooltip-arrow&quot;&gt;&lt;/div&gt;&lt;div class=&quot;ttooltip-inner&quot;&gt;&lt;h3 class=&quot;ttooltip-title&quot;&gt;&lt;/h3&gt;&lt;div class=&quot;ttooltip-content&quot;&gt;&lt;p&gt;&lt;/p&gt;&lt;/div&gt;&lt;div class=&quot;ttooltip-footer&quot;&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;</pre></td><td>
 	You can modify the template of the tooltip here. But note that, do not modify or remove these class name: <code>ttooltip-wrap, ttooltip-arrow, ttooltip-arrow-border, ttooltip-inner, ttooltip-title, ttooltip-content, ttooltip-footer</code> or you may break the tooltip.
 	</td></tr>
@@ -569,6 +631,26 @@ Ipsa codicellos iam gubergren nonumy qui a a civitas Conservus mihi quidditas mi
 	</div>
 	</div>
 </footer>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=394280927787";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
 </body>
+
+
+<script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+<!-- Place this render call where appropriate -->
+<script type="text/javascript">
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/plusone.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+</script>
+
 <script type="text/javascript" src="http://google-code-prettify.googlecode.com/svn/trunk/src/prettify.js"></script>
 </html>
