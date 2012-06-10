@@ -1,9 +1,21 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://ogp.me/ns/fb#" xmlns:og="http://opengraphprotocol.org/schema/" xml:lang="en" lang="en">
+
 <head>
 <title>jQuery tToolTip</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+
+<link rel="profile" href="http://gmpg.org/xfn/11" />
+<meta property="og:site_name" content="jQuery tTooltip"/>
+<meta property="fb:admins" content="1171193314"/>
+<meta property="fb:app_id" content="394280927787"/>
+<meta property="og:title" content="jQuery tTooltip"/>
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://takien.github.com/tTooltip/"/>
+<meta property="og:image" content="http://takien.github.com/tTooltip/images/tooltip-sample.jpg" />
+<meta property="og:description" content="jQuery tTooltip is just another simple and lightweight tooltip plugin for jQuery."/>
+<meta name="description" content="jQuery tTooltip is just another simple and lightweight tooltip plugin for jQuery. " />
 
 <script src="ttooltip/script/jquery.js"></script>
 <script src="ttooltip/script/jquery-ttooltip.js"></script>
@@ -17,15 +29,6 @@ jQuery(document).ready(function($){
 		followmouse: true
 	});
 	
-	
-	/*for demo only*/
-	$('#togglesource').click(function(){
-		$('.content a').each(function(){
-			$(this).wrap('<span class="awrap"/>')
-			//.after(' <input type="text" value="'+$('<div/>').text($(this).parent().html()).html()+'" />');
-			.after(' <code class="acode">'+$('<div/>').text($(this).parent().html()).html()+'</code>');
-		});
-	});
 });
 </script>
 <style type="text/css">
@@ -415,13 +418,16 @@ header{
 }
 .quick-links .github-btn,
 .quick-links .tweet-btn,
-.quick-links .follow-btn {
+.quick-links .follow-btn,
+.quick-links .gplus-btn,
+.quick-links .fb-btn {
   position: relative;
   top: 5px;
 }
 </style>
 </head>
 <body onload="prettyPrint()">
+
 <div class="container" id="wrapper">
 <header>
 <h1>jQuery tTooltip plugin</h1>
@@ -436,6 +442,9 @@ header{
       <a href="https://github.com/takien/tTooltip/zipball/master" class="btn btn-large btn-success">Download tTooltip (v0.1)</a>
     </p>
   <ul class="quick-links">
+	<li class="fb-btn">
+	<fb:like layout="button_count" send="false" href="http://takien.github.com/tTooltip/"></fb:like>
+	</li>
       <li>
         <iframe class="github-btn" src="http://markdotto.github.com/github-buttons/github-btn.html?user=takien&repo=tTooltip&type=watch&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="112px" height="20px"></iframe>
       </li>
@@ -448,7 +457,11 @@ header{
       <li class="tweet-btn">
         <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://takien.github.com/tTooltip/" data-count="horizontal" data-via="cektkp" data-related="cektkp:Creator of tTooltip">Tweet</a>
       </li>
+	  <li class="gplus-btn">
+		<g:plusone url="http://cektkp.com/" size="medium"></g:plusone>
+	   </li>
     </ul>
+
 <h2>Features:</h2>
 <ul>
 <li><strong>Light weight</strong>, only 3kb compressed javascript, and 4kb uncompressed :D</li>
@@ -615,7 +628,26 @@ Ipsa codicellos iam gubergren nonumy qui a a civitas Conservus mihi quidditas mi
 	</div>
 	</div>
 </footer>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=394280927787";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
 </body>
- <script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+
+
+<script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+<!-- Place this render call where appropriate -->
+<script type="text/javascript">
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/plusone.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+</script>
+
 <script type="text/javascript" src="http://google-code-prettify.googlecode.com/svn/trunk/src/prettify.js"></script>
 </html>
