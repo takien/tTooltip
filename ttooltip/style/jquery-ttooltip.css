@@ -93,6 +93,11 @@
 	border-right: 10px solid transparent;
 	border-top: 10px solid #fff;
 }
+.ttooltip-bottomleft .ttooltip-arrow.tooltip-arrow-gray,
+.ttooltip-bottomright .ttooltip-arrow.tooltip-arrow-gray{
+	border-top-color:#f5f5f5
+}
+
 .ttooltip-bottomleft .ttooltip-arrow-border,
 .ttooltip-bottomright .ttooltip-arrow-border{
 	bottom:-11px;
