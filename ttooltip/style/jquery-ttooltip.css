@@ -20,7 +20,7 @@
 .clearfix:after {
   clear: both;
 }
-.ttooltip{
+a.ttooltip{
 	text-decoration:none;
 	border-bottom:1px dotted #0079be;
 	color:#0079be
