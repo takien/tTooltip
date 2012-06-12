@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://ogp.me/ns/fb#" xmlns:og="http://opengraphprotocol.org/schema/" xml:lang="en" lang="en">
-
 <head>
 <title>jQuery tToolTip</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -608,7 +607,70 @@ jQuery(document).ready(function($){
 	</table>
 
 <h2>Various Demo</h2>
+<hr/>
 <div class="content">
+<h3>Tooltip on Form</h3>
+<form class="form-horizontal">
+        <fieldset>
+          <div class="control-group">
+            <label class="control-label" for="input01">Text input</label>
+            <div class="controls">
+              <input type="text" class="input-xlarge ttooltip" data-content="In addition to freeform text, any HTML5 text-based input appears like so." id="input01">
+              
+            </div>
+          </div>
+          <div class="control-group">
+            <label class="control-label" for="optionsCheckbox">Checkbox</label>
+            <div class="controls">
+              <label class="checkbox">
+                <input type="checkbox" id="optionsCheckbox" value="option1" class="ttooltip" data-content="This is a checkbox">
+                Option one is this and that&mdash;be sure to include why it's great
+              </label>
+            </div>
+          </div>
+          <div class="control-group">
+            <label class="control-label" for="select01">Select list</label>
+            <div class="controls">
+              <select id="select01" class="ttooltip" data-content="This is a select">
+                <option>something</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+              </select>
+            </div>
+          </div>
+          <div class="control-group">
+            <label class="control-label" for="multiSelect">Multicon-select</label>
+            <div class="controls">
+              <select multiple="multiple" id="multiSelect" class="ttooltip" data-content="This is multi select">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+              </select>
+            </div>
+          </div>
+          <div class="control-group">
+            <label class="control-label" for="fileInput">File input</label>
+            <div class="controls">
+              <input class="input-file ttooltip" data-content="This is tTooltip on a file input" id="fileInput" type="file">
+            </div>
+          </div>
+          <div class="control-group">
+            <label class="control-label" for="textarea">Textarea</label>
+            <div class="controls">
+              <textarea class="input-xlarge ttooltip" data-content="This is tTooltip on textarea" id="textarea" rows="3"></textarea>
+            </div>
+          </div>
+          <div class="form-actions">
+            <button type="submit" class="btn btn-primary">Save changes</button>
+            <button class="btn">Cancel</button>
+          </div>
+        </fieldset>
+      </form>
+
 <p>
 Possit facis qui a patriam <a class="ttooltip" href="#" data-title="Very simple tooltip" data-content="Very simple content">Theophilum</a> vinum dolor virgo. Ipsum dolore facto luctum amplissimum in lucem concitaverunt in fuerat construeret in modo ad nomine sed haec puella ut casus. Famulus prope lucti in deinde cupis auras, <a href="#" class="ttooltip" data-title="This is sample title" data-content="<img style='float:left;width:100px;margin-right:8px' src='images/cat.jpg' /> This is sample tooltip content with image and <strong>HTML</strong> markup." data-footer="This is tooltip footer" data-width="300">statimque</a> assueta cum obiectum invidunt cum magna. Notus ingreditur est Apollonius mihi. Fit vero non solutionem invenerunt ita ideo illa caelum pariter irrationabile navium propinares in. Ratione ornamentis rex ut sua Cumque materia effigie scit voluntatem nolunt ac iuro Apollonio dares ipsum se est Apollonius. Amen ad nomine Stranguillio cum suam vidit Dionysiadi suo celaturos Tantus nata genere Theophilus ut a. Maria cum magna anima est cum autem nobiscum paulo aureos ducerent parte.</p><p>
 Iusto opes mihi esse haec aliquam inlido laetare quod tamen cursu, scola somnis quidquid es illum ille Tharsos. Quid nobis eligat suum Heu enim ad quia iuvenis, rationem multum poni scandimus altera domina in deinde duas recitare. Discumbens ut diem anulo quod eam sed dominum oculos, corripit ars tolle quae dicens hoc contra suis Tyrium. Pone melius resultat iuvenis est in deinde vero rex, 'Non potentia alta petit in deinde plectrum anni ipsa mihi. Ephesiorum illius actio viro nihil docta renovasti dominus se vero rex Stranguillio eam in fuerat construeret in. <a href="#" class="ttooltip" data-title="Another title" data-content="Another content Apollonius non ait est cum">Philomusia</a> in modo cavendum es ego Pentapolim Cyrenaeorum tertia domina lacrimis colligantes. Interveniens sed esse more fuerit mitti cum obiectum dixit. Zurziaca in rei finibus veteres hoc contra piissimi sibi dicit semper. <a class="ttooltip" href="#" data-content="Tooltip NHCO, No heading content only">Volvitur</a> ingreditur est Apollonius non ait est cum. Hanc nec benedictus ad suis est amet coram te in deinde cupis auras in rei sensibilium iussit sed haec. Eiusdem ordo quos essem rogo me in lucem exitum atque ut libertatem adhuc quid nobis si quod una Christi inter. Materia eam in rei sensibilium iussit sed quod tamen sed esse haec sed quod eam ad nomine. Iuravi potest ei Taliarchum in modo ad suis est Apollonius ut diem obiecti vestes periit ad suis est se ad nomine. Laudes honore est amet coram me naufragus ferro dolor invenerit.</p><p>
