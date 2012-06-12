@@ -66,6 +66,11 @@
 				var href    = tt.attr('href');
 				var width   = tt.attr('data-width');
 				
+				/* if no content, do nothing */
+				if(content == undefined){
+					return false;
+				}
+				
 				/* add clearfix to the footer */
 				c.addClass('clearfix');
 				f.addClass('clearfix');
