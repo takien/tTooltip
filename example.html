@@ -23,7 +23,15 @@ jQuery(document).ready(function($){
   /* assign tTooltip to all link with .ttooltip class */
 	$('.ttooltip').ttooltip({
 		trigger    :'mouseenter', /*possible value: hover, mouseenter, click, dblclick*/
-		followmouse: true
+		followmouse: true,
+		onload   : function(tooltip,source){
+			tooltip.click(function(){
+				console.log('tooltip clicked');
+			});
+		},
+		onclose : function(tooltip,source){
+			console.log('tooltip closed');
+		}
 	});
 	
 });
