@@ -23,7 +23,19 @@ jQuery(document).ready(function($){
   /* assign tTooltip to all link with .ttooltip class */
 	$('.ttooltip').ttooltip({
 		trigger    :'mouseenter', /*possible value: hover, mouseenter, click, dblclick*/
-		followmouse: true
+		followmouse: true,
+		onload   : function(tooltip,source){
+			tooltip.click(function(){
+				//console.log('tooltip clicked');
+				if(source.is('input')){
+				source.val(tooltip.text());
+				}
+			});
+		},
+		onclose : function(tooltip,source){
+			//console.log('tooltip closed');
+			
+		}
 	});
 	
 });
@@ -431,7 +443,11 @@ header{
 	<li class="fb-btn">
 	<fb:like layout="button_count" send="false" href="http://takien.github.com/tTooltip/"></fb:like>
 	</li>
+<<<<<<< HEAD
      
+=======
+      
+>>>>>>> callback
       <li class="follow-btn">
         <a href="https://twitter.com/cektkp" class="twitter-follow-button" data-link-color="#0069D6" data-show-count="true">Follow @cektkp</a>
       </li>

@@ -32,7 +32,8 @@
 
 		return ret;
 	}
-	$.fn.ttooltip = function(customOptions) {  
+	
+	$.fn.ttooltip = function(customOptions) {
 		var o = $.extend({}, $.fn.ttooltip.defaultOptions, customOptions);
 		var tp = $(o.template);
 		var c = tp.find('.ttooltip-content');
@@ -40,6 +41,9 @@
 		var f = tp.find('.ttooltip-footer');
 		var timeout = 0;
 		var times   = 0;
+		var tooltip;
+		var source;
+		
 		tp.css({
 			'position':'absolute',
 			'max-width':o.maxwidth
@@ -55,22 +59,48 @@
 
 				/* update tp object to the newest dom */
 				tp = $('.ttooltip-wrap');
+				
 				c = tp.find('.ttooltip-content');
 				t = tp.find('.ttooltip-title');
 				f = tp.find('.ttooltip-footer');
 				
-				/* collect data from link attribute */
-				var title   = tt.attr('data-title');
-				var content = tt.attr('data-content');
-				var footer  = tt.attr('data-footer');
-				var href    = tt.attr('href');
-				var width   = tt.attr('data-width');
-				
-				/* if no content, do nothing */
-				if(content == undefined){
+				/* collect data from data attribute */
+				source = tt.data();
+				if(source.href==undefined){
+					source.href=tt.attr('href');
+				}
+
+				/* if no content, nothing to do here */
+				if(source.content == undefined){
 					return false;
 				}
+				/* set the content */
+				/* if content is ajax, get data from data-href if any or from href attribute */
+				if(source.content == 'ajax'){
+					$.get(source.href,function(data){
+						tp.find('.ttooltip-inner').html(data);
+						o.onload(tp,tt);
+					});
+				}
+				else {
+					t.show().html(source.title);
+					c.show().html(source.content);
+					f.show().html(source.footer);
+					
+					o.onload(tp,tt);
+					
+					/* hide footer if empty */
+					if(source.footer==undefined){
+						f.empty().hide();
+					}
+					/* hide title if empty */
+					if(source.title==undefined){
+						t.empty().hide();
+					}
+				}
 				
+				
+
 				/* add clearfix to the footer */
 				c.addClass('clearfix');
 				f.addClass('clearfix');
@@ -87,29 +117,6 @@
 				var mousetop;
 				/* do not overlap mouse cursor with arrow */
 				mouseleft = mouseleft - distance;
-				
-				/* set the content */
-				/* if content is ajax, get data from href attribute */
-				if(content == 'ajax'){
-					$.get(href,function(data){
-						tp.find('.ttooltip-inner').html(data);
-					});
-				}
-				else {
-					t.show().html(title);
-					c.show().html(content);
-					f.show().html(footer);
-					
-					/* hide footer if empty */
-					if(footer==undefined){
-						f.empty().hide();
-					}
-					/* hide title if empty */
-					if(title==undefined){
-						t.empty().hide();
-					}
-
-				}
 				
 				arrow.removeClass('tooltip-arrow-gray');
 				
@@ -129,7 +136,7 @@
 				.css({
 					'top'  : mousetop,
 				    'left' : mouseleft,
-					'width': width,
+					'width': source.width?source.width:'auto',
 					'opacity':1
 				})
 				.fadeIn();
@@ -177,11 +184,17 @@
 					};
 				}
 				
+				
 				function close(what){
-					what.fadeOut(o.fadeoutspeed,function(){what.remove()});
+					what.fadeOut(o.fadeoutspeed,function(){
+					what.remove();
+						/*call onclose callback*/
+						o.onclose(what,tt);
+					});
 					clearTimeout(timeout);
 					times=0;
 				}
+			
 				
 				e.preventDefault();
 			});
@@ -201,6 +214,8 @@
 		maxwidth	: 500,
 		timeout		: 2000,
 		fadeoutspeed: 'slow',
+		onload		: function(){},
+		onclose		: function(){},
 		template	: '<div class="ttooltip-wrap"><div class="ttooltip-arrow ttooltip-arrow-border"></div><div class="ttooltip-arrow"></div><div class="ttooltip-inner"><h3 class="ttooltip-title"></h3><div class="ttooltip-content"><p></p></div><div class="ttooltip-footer"></div></div></div>'
 	};
 })(jQuery);
