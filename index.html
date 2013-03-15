@@ -82,6 +82,8 @@ jQuery(document).ready(function($){
 <li><strong>AJAX</strong>, content could be loaded from external source use AJAX</li>
 <li><strong>Easy</strong>, setup tooltip just in minute.</li>
 <li><strong>Cross browser</strong>, I have tested on latest Mozilla Firefox, Safari, Opera, and IE9</li>
+<li><strong>Manual close button</strong>, optionally</li>
+<li><strong>Callback</strong>, you can run callback when tooltip is loaded (opened) or closed</li>
 
 </ul>
 <h2>How to use</h2>
@@ -119,7 +121,27 @@ jQuery(document).ready(function($){
 	</p>
 	</li>
 </ol>
+<!-- Changelog -->
+<h2>Changelog</h2>
 
+<h4>v0.2</h4>
+<ul>
+	<li>Add closebutton</li>
+	<li>Fix wrong placement on some case</li>
+	<li>Fix some css issue</li>
+	<li>Change default <code>timeout</code> to 500</li>
+	<li>Change default <code>fadeoutspeed</code> to 'fast'</li>
+</ul>
+
+<h4>v0.1.1 (merged to 0.1)</h4>
+<ul>
+	<li>Add <code>onload</code> and <code>onclose</code> callback</li>
+</ul>
+
+<h4>v0.1</h4>
+<ul>
+	<li>Initial release</li>
+</ul>
 	<h2>Example:</h2>
 	<h3>Script</h3>
 <pre class="prettyprint">
@@ -208,9 +230,10 @@ jQuery(document).ready(function($){
 	<tr><td><strong>close		</strong></td><td> : <em>'mouseleave',</em></td><td>Set <code>mouseleave</code> if you want to tooltip autohide (autohide parameter should be true). Otherwise you can set <code>click</code> if you want tooltip to close when it's clicked.</td></tr>
 	<tr><td><strong>maxwidth	</strong></td><td> : <em>500</em></td><td>Maximum width of the tooltip box, default value is <code>500</code></td></tr>
 	
-	<tr><td><strong>fadeoutspeed</strong></td><td> : <em>'slow'</em></td><td>The fadeout speed, default is <code>slow</code>. Possible value: <code>slow, fast</code> and any number (miliseconds) eg <code>1000</code>.</td></tr>	
+	<tr><td><strong>fadeoutspeed</strong></td><td> : <em>'fast'</em></td><td>The fadeout speed, default is <code>fast</code>. Possible value: <code>slow, fast</code> and any number (miliseconds) eg <code>1000</code>.</td></tr>	
 	
-	<tr><td><strong>timeout</strong></td><td> : <em>2000</em></td><td>Miliseconds before tooltip auto closed. Default value <code>2000</code>.</td></tr>
+	<tr><td><strong>timeout</strong></td><td> : <em>500</em></td><td>Miliseconds before tooltip auto closed. Default value <code>500</code>.</td></tr>
+	<tr><td><strong>closebutton</strong></td><td> : <em>false</em></td><td>Whether show close button (&times;) or not at the top right of the tooltip. Default value <code>false</code></td></tr>
 
 	
 	<tr><td><strong>template	</strong></td><td> : <pre >&lt;div class=&quot;ttooltip-wrap&quot;&gt;&lt;div class=&quot;ttooltip-arrow ttooltip-arrow-border&quot;&gt;&lt;/div&gt;&lt;div class=&quot;ttooltip-arrow&quot;&gt;&lt;/div&gt;&lt;div class=&quot;ttooltip-inner&quot;&gt;&lt;button type=&quot;button&quot; class=&quot;ttooltip-close&quot;&gt;&amp;times;&lt;/button&gt;&lt;h3 class=&quot;ttooltip-title&quot;&gt;&lt;/h3&gt;&lt;div class=&quot;ttooltip-content&quot;&gt;&lt;p&gt;&lt;/p&gt;&lt;/div&gt;&lt;div class=&quot;ttooltip-footer&quot;&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;</pre></td><td>
