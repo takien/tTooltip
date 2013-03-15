@@ -1,5 +1,5 @@
 /*!
- * tTooltip v0.1
+ * tTooltip v0.2
  *
  * Copyright 2012 Takien, No Inc
  * http://takien.com
@@ -52,6 +52,8 @@
 		return this.each(function(index) {
 			var tt = $(this);
 			tt.bind(o.trigger,function(e){
+									
+								
 				clearInterval(timeout);
 				
 				/* append template to body*/
@@ -110,7 +112,7 @@
 				.removeClass()
 				.addClass('ttooltip-wrap ttooltip-'+arrow_pos(tt))
 				.fadeIn();
-							
+
 				var arrow 	= tp.find('.ttooltip-arrow');
 				var mouseleft = (e.pageX-((arrow.outerWidth()*0.5)+arrow.position().left));
 				var distance = 25;
@@ -120,10 +122,14 @@
 				
 				arrow.removeClass('tooltip-arrow-gray');
 				
-				/* update top position */
-				mousetop = tt.position().top+tt.outerHeight()+arrow.outerHeight();
+
+				/*
+				* use .offset() instead of .position()
+				* @since: 0.2
+				*/
+				mousetop = tt.offset().top+tt.outerHeight()+arrow.outerHeight();
 				if((arrow_pos(tt) == 'bottomright') || (arrow_pos(tt) == 'bottomleft')){
-					mousetop = tt.position().top-tp.outerHeight()-arrow.outerHeight();
+					mousetop = tt.offset().top-tp.outerHeight()-arrow.outerHeight();
 					mouseleft = mouseleft - distance;
 					distance = 0;
 
@@ -141,6 +147,10 @@
 				})
 				.fadeIn();
 
+				
+				
+				
+				
 				/* follow mouse movement, horizontal only */
 				if(o.followmouse) {
 					$(this).mousemove(function(x){
@@ -150,14 +160,17 @@
 						})
 					});
 				}
+				
 				/* close on mouseleave*/
 				
 				if(o.autohide){
-					/* define times, to prevent event triggered twice*/
+				/* define times, to prevent event triggered twice*/
 					closewhat($(this));
 					closewhat(tp);
 				}
 
+					
+				
 				function closewhat(what){
 					what.bind(o.close,function(){
 							times++;
@@ -167,6 +180,11 @@
 								},o.timeout);
 							
 							tp.bind('mouseenter',function(){
+								times=0;
+								clearTimeout(timeout);
+							});
+							/*updated 30/09/2012*/
+							tt.bind('mouseenter',function(){
 								times=0;
 								clearTimeout(timeout);
 							});
@@ -183,7 +201,11 @@
 						}
 					};
 				}
-				
+
+				tp.find('.ttooltip-close').click(function(e){
+					close(tp);
+					e.preventDefault();
+				});
 				
 				function close(what){
 					what.fadeOut(o.fadeoutspeed,function(){
@@ -195,8 +217,8 @@
 					times=0;
 				}
 			
-				
 				e.preventDefault();
+				
 			});
 			
 		}); /* end loop*/
@@ -211,11 +233,12 @@
 		title		: '',
 		trigger		: 'mouseenter',
 		close		: 'mouseleave',
-		maxwidth	: 500,
-		timeout		: 2000,
-		fadeoutspeed: 'slow',
+		maxwidth	: 300,
+		timeout		: 500,
+		fadeoutspeed: 'fast',
 		onload		: function(){},
 		onclose		: function(){},
-		template	: '<div class="ttooltip-wrap"><div class="ttooltip-arrow ttooltip-arrow-border"></div><div class="ttooltip-arrow"></div><div class="ttooltip-inner"><h3 class="ttooltip-title"></h3><div class="ttooltip-content"><p></p></div><div class="ttooltip-footer"></div></div></div>'
-	};
+		template	: '<div class="ttooltip-wrap"><div class="ttooltip-arrow ttooltip-arrow-border"></div><div class="ttooltip-arrow"></div><div class="ttooltip-inner"><button type="button" class="ttooltip-close">&times;</button><h3 class="ttooltip-title"></h3><div class="ttooltip-content"><p></p></div><div class="ttooltip-footer"></div></div></div>'
+
+	};/*updated 30/09/2012*/
 })(jQuery);
