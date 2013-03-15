@@ -240,5 +240,5 @@
 		onclose		: function(){},
 		template	: '<div class="ttooltip-wrap"><div class="ttooltip-arrow ttooltip-arrow-border"></div><div class="ttooltip-arrow"></div><div class="ttooltip-inner"><button type="button" class="ttooltip-close">&times;</button><h3 class="ttooltip-title"></h3><div class="ttooltip-content"><p></p></div><div class="ttooltip-footer"></div></div></div>'
 
-	};/*updated 30/09/2012*/
+	};
 })(jQuery);
