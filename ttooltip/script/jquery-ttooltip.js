@@ -104,8 +104,8 @@
 				
 
 				/* add clearfix to the footer */
-				c.addClass('clearfix');
-				f.addClass('clearfix');
+				c.addClass('ttooltip-clearfix');
+				f.addClass('ttooltip-clearfix');
 				
 				/* remove any position class, then update with new position class */
 				tp
@@ -201,11 +201,16 @@
 						}
 					};
 				}
-
-				tp.find('.ttooltip-close').click(function(e){
-					close(tp);
-					e.preventDefault();
-				});
+				
+				if(o.closebutton) {
+					tp.find('.ttooltip-close').click(function(e){
+						close(tp);
+						e.preventDefault();
+					});
+				}
+				else {
+					tp.find('.ttooltip-close').hide();
+				}
 				
 				function close(what){
 					what.fadeOut(o.fadeoutspeed,function(){
@@ -238,6 +243,7 @@
 		fadeoutspeed: 'fast',
 		onload		: function(){},
 		onclose		: function(){},
+		closebutton : false,
 		template	: '<div class="ttooltip-wrap"><div class="ttooltip-arrow ttooltip-arrow-border"></div><div class="ttooltip-arrow"></div><div class="ttooltip-inner"><button type="button" class="ttooltip-close">&times;</button><h3 class="ttooltip-title"></h3><div class="ttooltip-content"><p></p></div><div class="ttooltip-footer"></div></div></div>'
 
 	};
