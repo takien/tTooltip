@@ -20,11 +20,7 @@
 .ttooltip-clearfix:after {
   clear: both;
 }
-a.ttooltip{
-	text-decoration:none;
-	border-bottom:1px dotted #0079be;
-	color:#0079be
-}
+
 .ttooltip-wrap{
 	font-size:13px;
 	background:#f5f5f5;
