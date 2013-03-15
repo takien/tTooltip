@@ -1,5 +1,5 @@
 /*!
- * tTooltip v0.1
+ * tTooltip v0.2
  *
  * Copyright 2012 Takien, No Inc
  * http://takien.com
@@ -9,15 +9,15 @@
  *
  * follow @cektkp and @perdanaweb
  */
-.clearfix {
+.ttooltip-clearfix {
   *zoom: 1;
 }
-.clearfix:before,
-.clearfix:after {
+.ttooltip-clearfix:before,
+.ttooltip-clearfix:after {
   display: table;
   content: "";
 }
-.clearfix:after {
+.ttooltip-clearfix:after {
   clear: both;
 }
 a.ttooltip{
@@ -26,6 +26,7 @@ a.ttooltip{
 	color:#0079be
 }
 .ttooltip-wrap{
+	font-size:14px;
 	background:#f5f5f5;
 	border:1px solid #b3b3b3;
 	z-index:2000;
@@ -106,4 +107,19 @@ a.ttooltip{
 
 .ttooltip-footer{
 	padding:10px;
+}
+
+.ttooltip-close {
+    position: absolute;
+    top: -4px;
+    right: 0;
+	padding: 0px;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    font-size: 20px;
+    font-weight: bold;
+    color: #ccc;
+	margin-right:5px;
+	margin-top:5px;
 }
